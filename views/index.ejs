@@ -14,12 +14,20 @@
   <main>
     <div class="toolbar">
       <a href="/items/new" class="btn">+ List an item</a>
+      <form class="inline" method="GET" action="/">
+        <select name="category" onchange="this.form.submit()">
+          <option value="">All categories</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Books">Books</option>
+          <option value="Tools">Tools</option>
+        </select>
+      </form>
     </div>
 
-    <% if (items.length === 0) { %>
-      <p class="empty">No items listed yet. Be the first to add one!</p>
+    <% if (filteredItems.length === 0) { %>
+      <p class="empty">No items match this filter.</p>
     <% } else { %>
-      <% items.forEach(function(item) { %>
+      <% filteredItems.forEach(function(item) { %>
         <div class="item-card">
           <div class="item-info">
             <h3><%= item.name %></h3>
