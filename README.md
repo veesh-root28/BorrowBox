@@ -5,7 +5,7 @@ they're willing to lend (books, calculators, chargers, tools, etc.)
 and browse/request items other students have listed.
 
 ## Live app
-(link added after deployment)
+https://borrowbox-d1fi.onrender.com/
 
 ## Tech stack
 - Node.js + Express
