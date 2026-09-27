@@ -18,10 +18,14 @@ app.get("/health", (req, res) => {
   res.status(200).json({ status: "ok" });
 });
 
-// Home page: lists all items.
+// Home page: lists all items, optionally filtered by category.
 app.get("/", (req, res) => {
-  const items = store.getAllItems();
-  res.render("index", { items });
+  const { category } = req.query;
+  const allItems = store.getAllItems();
+  const items = category
+    ? allItems.filter((item) => item.category === category)
+    : allItems;
+  res.render("index", { filteredItems: items });
 });
 
 // Form to add a new item.
